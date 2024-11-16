@@ -66,7 +66,7 @@ class Encoder(nn.Module):
     def forward(self, x, dropout_rate):
         norm = x.pow(2).sum(dim=-1).sqrt()
         x = x / norm[:, None]
-    
+        x[x != x] = 0
         x = F.dropout(x, p=dropout_rate, training=self.training)
         
         h1 = self.ln1(swish(self.fc1(x)))
