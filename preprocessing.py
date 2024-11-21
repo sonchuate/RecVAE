@@ -57,7 +57,7 @@ sparsity = 1. * raw_data.shape[0] / (user_activity.shape[0] * item_popularity.sh
 print("After filtering, there are %d watching events from %d users and %d movies (sparsity: %.3f%%)" % 
       (raw_data.shape[0], user_activity.shape[0], item_popularity.shape[0], sparsity * 100))
 
-unique_uid = user_activity.index
+unique_uid = user_activity.userId
 
 np.random.seed(98765)
 idx_perm = np.random.permutation(unique_uid.size)
