@@ -1,7 +1,10 @@
 # RecVAE
+
 The official PyTorch implementation of the paper "RecVAE: A New Variational Autoencoder for Top-N Recommendations with Implicit Feedback".
 
 In order to train RecVAE on MovieLens-20M dataset ([download link](http://files.grouplens.org/datasets/movielens/ml-20m.zip)), preprocess it using following script:
+
+userId, movieId, rating
 
 ```sh
 python preprocessing.py --dataset <path_to_csv_file> --output_dir <dataset_dir> --threshold 3.5 --heldout_users 10000
@@ -16,6 +19,7 @@ python run.py --dataset <dataset_dir> --n-epochs 50 --gamma 0.005
 ```
 
 Use the following command to reproduce results of RecVAE+ImplicitSLIM ([github](https://github.com/ilya-shenbin/ImplicitSLIM), [paper](https://openreview.net/pdf?id=6vF0ZJGor4)) on MovieLens-20M:
+
 ```
 python run.py --dataset <dataset_dir> --n-epochs 100 --latent-dim 400 --gamma 0.004 --implicitslim --step 10 --lambd 500 --alpha 1 --threshold 1000
 ```
@@ -24,9 +28,10 @@ See `python run.py -h` for more information.
 
 Current model is slightly different from the one described in the paper, you can find original code [here](https://github.com/ilya-shenbin/RecVAE/tree/wsdm).
 
-Some sources from  [Variational autoencoders for collaborative filtering](https://github.com/dawenl/vae_cf) is partially used.
+Some sources from [Variational autoencoders for collaborative filtering](https://github.com/dawenl/vae_cf) is partially used.
 
 If you used this code for a publication, please cite our WSDM'20 paper
+
 ```
 @inproceedings{10.1145/3336191.3371831,
   author = {Shenbin, Ilya and Alekseev, Anton and Tutubalina, Elena and Malykh, Valentin and Nikolenko, Sergey I.},
@@ -45,4 +50,3 @@ If you used this code for a publication, please cite our WSDM'20 paper
   series = {WSDM ’20}
 }
 ```
-
