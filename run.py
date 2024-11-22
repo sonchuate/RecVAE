@@ -186,6 +186,7 @@ for epoch in range(args.n_epochs):
     if valid_scores[-1] > best_ndcg:
         best_ndcg = valid_scores[-1]
         model_best.load_state_dict(deepcopy(model.state_dict()))
+        torch.save(model_best.state_dict(), "model_parameters.pth")
         
 
     print(f'epoch {epoch} | valid ndcg@100: {valid_scores[-1]:.4f} | ' +
